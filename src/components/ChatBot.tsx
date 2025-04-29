@@ -3,14 +3,12 @@ import React, { useState, useRef, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { 
-  Drawer,
-  DrawerClose,
-  DrawerContent,
-  DrawerDescription,
-  DrawerFooter,
-  DrawerHeader,
-  DrawerTitle,
-} from '@/components/ui/drawer';
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+} from '@/components/ui/dialog';
 import { Send, BotMessageSquare } from 'lucide-react';
 
 type Message = {
@@ -98,20 +96,20 @@ const ChatBot: React.FC<ChatBotProps> = ({ open, onOpenChange }) => {
   };
 
   return (
-    <Drawer open={open} onOpenChange={onOpenChange}>
-      <DrawerContent className="h-[80vh] max-h-[80vh]">
-        <DrawerHeader>
-          <DrawerTitle className="flex items-center">
+    <Dialog open={open} onOpenChange={onOpenChange}>
+      <DialogContent className="sm:max-w-md w-full max-h-[500px] flex flex-col">
+        <DialogHeader>
+          <DialogTitle className="flex items-center">
             <BotMessageSquare className="mr-2 h-5 w-5" />
             Career Compass Assistant
-          </DrawerTitle>
-          <DrawerDescription>
+          </DialogTitle>
+          <DialogDescription>
             Ask questions about career resources, jobs, or advising
-          </DrawerDescription>
-        </DrawerHeader>
+          </DialogDescription>
+        </DialogHeader>
         
-        <div className="px-4 flex-1 overflow-y-auto">
-          <div className="space-y-4 pb-4">
+        <div className="flex-1 overflow-y-auto py-4 max-h-[350px]">
+          <div className="space-y-4">
             {messages.map((message) => (
               <div
                 key={message.id}
@@ -140,7 +138,7 @@ const ChatBot: React.FC<ChatBotProps> = ({ open, onOpenChange }) => {
           </div>
         </div>
         
-        <DrawerFooter className="border-t pt-4">
+        <div className="border-t pt-4 mt-auto">
           <div className="flex gap-2">
             <Input
               placeholder="Type your message..."
@@ -153,12 +151,9 @@ const ChatBot: React.FC<ChatBotProps> = ({ open, onOpenChange }) => {
               <Send className="h-4 w-4" />
             </Button>
           </div>
-          <DrawerClose asChild>
-            <Button variant="outline">Close</Button>
-          </DrawerClose>
-        </DrawerFooter>
-      </DrawerContent>
-    </Drawer>
+        </div>
+      </DialogContent>
+    </Dialog>
   );
 };
 

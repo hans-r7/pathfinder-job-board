@@ -76,12 +76,12 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
       </div>
       <div className="mt-auto p-4 border-t border-gray-200">
         <Button 
-          variant="ghost" 
-          className="w-full justify-start"
+          variant="outline" 
+          className="w-full flex items-center space-x-2 justify-start bg-slate-50 hover:bg-slate-100"
           onClick={() => setChatBotOpen(true)}
         >
-          <HelpCircle className="mr-2 h-4 w-4" />
-          Help Assistant
+          <HelpCircle className="h-5 w-5" />
+          <span>Help Assistant</span>
         </Button>
       </div>
     </>
