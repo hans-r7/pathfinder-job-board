@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Label } from '@/components/ui/label';
@@ -21,21 +20,21 @@ const advisors = [
     id: '1',
     name: 'Dr. Sarah Chen',
     rating: 4.8,
-    image: '/lovable-uploads/e73f2f9c-aa8f-4e83-a916-0f37547dc875.png',
+    image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80',
     specialties: ['Resume Review', 'Interview Prep']
   },
   {
     id: '2',
     name: 'Mr. David Lee',
     rating: 4.5,
-    image: '/lovable-uploads/7fea6903-5098-4813-a704-ce5f62cef508.png',
+    image: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80',
     specialties: ['Internship Search', 'Networking']
   },
   {
     id: '3',
     name: 'Ms. Emily White',
     rating: 4.9,
-    image: '/lovable-uploads/cb3eb444-4c7e-47e5-9f91-ae9ab9a9aaa7.png',
+    image: 'https://images.unsplash.com/photo-1605810230434-7631ac76ec81?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80',
     specialties: ['Career Exploration', 'Grad School Apps']
   }
 ];
