@@ -1,9 +1,10 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { cn } from '@/lib/utils';
 import { Calendar, FileText, HelpCircle, LayoutDashboard, Search } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import ChatBot from '@/components/ChatBot';
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -12,6 +13,7 @@ interface LayoutProps {
 const Layout: React.FC<LayoutProps> = ({ children }) => {
   const location = useLocation();
   const isActive = (path: string) => location.pathname === path;
+  const [chatBotOpen, setChatBotOpen] = useState(false);
 
   return (
     <div className="min-h-screen flex flex-col md:flex-row">
@@ -64,7 +66,11 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
           </nav>
         </div>
         <div className="mt-auto p-4 border-t border-gray-200">
-          <Button variant="ghost" className="w-full justify-start">
+          <Button 
+            variant="ghost" 
+            className="w-full justify-start"
+            onClick={() => setChatBotOpen(true)}
+          >
             <HelpCircle className="mr-2 h-4 w-4" />
             Help Assistant
           </Button>
@@ -75,6 +81,9 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
       <main className="flex-1 flex flex-col min-h-screen overflow-auto">
         {children}
       </main>
+      
+      {/* ChatBot */}
+      <ChatBot open={chatBotOpen} onOpenChange={setChatBotOpen} />
     </div>
   );
 };
