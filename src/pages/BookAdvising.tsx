@@ -14,7 +14,6 @@ import { Monitor, User } from 'lucide-react';
 import { toast } from 'sonner';
 import { useNavigate } from 'react-router-dom';
 
-// Mock data
 const advisors = [
   {
     id: '1',
@@ -55,6 +54,12 @@ const BookAdvising = () => {
   const [selectedTimeSlot, setSelectedTimeSlot] = useState<string | null>(null);
   const [meetingFormat, setMeetingFormat] = useState<'in-person' | 'zoom'>('in-person');
   const navigate = useNavigate();
+
+  const isPastDate = (date: Date) => {
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    return date < today;
+  };
 
   const handleSubmit = () => {
     if (!reason) {
@@ -156,6 +161,7 @@ const BookAdvising = () => {
                   mode="single"
                   selected={date}
                   onSelect={setDate}
+                  disabled={isPastDate}
                   initialFocus
                 />
               </PopoverContent>
